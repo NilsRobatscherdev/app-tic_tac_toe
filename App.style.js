@@ -21,14 +21,23 @@ export default StyleSheet.create({
         aspectRatio:1,
       },
       circle:{
+        position:'absolute',
+        left:0,
+        top:0,
         width:50,
         height:50,
         backgroundColor:'#242D34',
         borderRadius:25,
-        borderWidth:3,
+        borderWidth:5,
         borderColor:'white'
       },
+      cross:{
+        position:'absolute',
+        width:50,
+        height:50,
+      },
       crossLine:{
+        left:25,
         position:'absolute',
         width:5,
         height:50,
