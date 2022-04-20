@@ -16,9 +16,18 @@ export default StyleSheet.create({
       },
       map:{
         borderWidth:1,
-        borderColor:"white",
+
         width:"80%",
         aspectRatio:1,
+      },
+      row:{
+        flex:1,
+        flexDirection:"row",
+      },
+      cell:{
+        flex:1,
+        borderColor:"red",
+        borderWidth:1,
       },
       circle:{
         position:'absolute',
