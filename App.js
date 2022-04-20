@@ -19,7 +19,10 @@ export default function App() {
           {
             map.map((row)=> (
               <View style={styles.row}>
-                {row.map((cell) => <View style={styles.cell}></View>)}
+                {row.map((cell) => (
+                  <View style={styles.cell}>
+                  </View>
+                ))}
               </View>
             ))
           }
