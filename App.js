@@ -8,9 +8,9 @@ import BgImage from './assets/bg.jpeg'
 
 export default function App() {
   const [map,setMap] = useState([
-    ['','',''], // first
-    ['','',''], // second
-    ['','','']  // third
+    ['o','x','x'], // first
+    ['o','o','x'], // second
+    ['x','o','o']  // third
   ]);
   return (
     <View style={styles.container}>
@@ -21,25 +21,19 @@ export default function App() {
               <View style={styles.row}>
                 {row.map((cell) => (
                   <View style={styles.cell}>
+                    {cell === "o" && <View style={styles.circle}></View>}
+                    {cell === "x" && (
+                      <View style={styles.cross}>
+                        <View style={styles.crossLine}></View>
+                        <View style={[ styles.crossLine, styles.crossLineReversed]}></View>
+                      </View>
+                    )}
                   </View>
                 ))}
               </View>
             ))
           }
-
-
-           {/**
-            *
-            <View style={styles.circle}></View>
-            <View style={styles.cross}>
-              <View style={styles.crossLine}></View>
-              <View style={[ styles.crossLine, styles.crossLineReversed]}></View>
-            </View>
-            * 
-            */}
-
         </View>
-
       </ImageBackground>
       <StatusBar style="auto" />
     </View>

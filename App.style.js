@@ -15,7 +15,7 @@ export default StyleSheet.create({
         paddingTop:20,
       },
       map:{
-        borderWidth:1,
+
         width:"80%",
         aspectRatio:1,
       },
@@ -25,13 +25,10 @@ export default StyleSheet.create({
       },
       cell:{
         flex:1,
-        borderColor:"red",
-        borderWidth:1,
         justifyContent:"center",
-        alignItems:"center"
+        alignItems:"center",
       },
       circle:{
-
         left:0,
         top:0,
         width:50,
@@ -42,7 +39,6 @@ export default StyleSheet.create({
         borderColor:'white'
       },
       cross:{
-
         width:50,
         height:50,
       },
@@ -52,6 +48,7 @@ export default StyleSheet.create({
         width:5,
         height:50,
         backgroundColor:"white",
+        borderRadius:10,
         transform:[
           {
             rotate:'45deg'
