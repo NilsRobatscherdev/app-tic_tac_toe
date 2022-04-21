@@ -4,8 +4,17 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#242D34',
-        alignItems: 'center',
-        justifyContent: 'center',
+      },
+      turn:{
+        width:'80%',
+        top:100,
+        left:50,
+        zIndex:2,
+      },
+      turnText:{
+        color:"white",
+        fontSize:32,
+        position:'absolute'
       },
       bg:{
         width:'100%',

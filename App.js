@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, View, ImageBackground } from 'react-native';
+import { Text, Pressable, View, ImageBackground } from 'react-native';
 
 import styles from './App.style'
 
@@ -28,16 +28,59 @@ export default function App() {
     });
     // switching of turns
     setCurrentTurn(currentTurn === 'x' ? 'o' : "x" )
+
+    checkWinningState();
   }
+
+  const checkWinningState = () => {
+    // Check rows
+    for(let row = 0; row <3; row++){
+        const isRowXWinning = map[row].every((cell) => cell === "x")
+        const isRowOWinning = map[row].every((cell) => cell === "o")
+
+        if(isRowXWinning){
+          console.warn("X won. Row: ",row)
+        }
+        if(isRowOWinning){
+          console.warn("O won. Row: ",row)
+        }
+    }
+    // Check columns
+    for(let col = 0; col < 3; col++){
+
+      let isColumnXWinner = true;
+      let isColumnOWinner = true;
+
+      for(let row = 0; row <3; row++){
+        if(map[row][col] !== 'x'){
+          isColumnXWinner = false
+        }
+        if(map[row][col] !== 'o'){
+          isColumnOWinner = false
+        }
+      }
+      if(isColumnXWinner){
+        console.warn("X won. Col: ",col)
+      }
+      if(isColumnOWinner){
+        console.warn("O won. Col: ",col)
+      }
+    }
+    // Check diagonals
+  }
+
   return (
     <View style={styles.container}>
+      <View style={styles.turn}>
+        <Text style={styles.turnText}>Current Turn: {currentTurn}</Text>
+      </View>
       <ImageBackground source={BgImage} style={styles.bg} resizeMode="contain">
         <View style={styles.map}>
           {
             map.map((row, rowIndex)=> (
-              <View style={styles.row}>
+              <View style={styles.row} key={`key-${rowIndex}`}>
                 {row.map((cell, columnIndex) => (
-                  <Pressable onPress={() => onPress(rowIndex,columnIndex)} style={styles.cell}>
+                  <Pressable onPress={() => onPress(rowIndex,columnIndex)} key={`key-${rowIndex}-col-${columnIndex}`} style={styles.cell}>
                     {cell === "o" && <View style={styles.circle}></View>}
                     {cell === "x" && (
                       <View style={styles.cross}>
